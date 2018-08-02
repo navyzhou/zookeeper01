@@ -14,7 +14,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 		<slf4j.verison>1.7.6</slf4j.verison>
-		<curator.version>2.12.0</curator.version>
 		<zk.version>3.4.13</zk.version>
 	</properties>
 
@@ -37,6 +36,16 @@
 			<artifactId>zookeeper</artifactId>
 			<version>${zk.version}</version>
 		</dependency>
+
+<!-- 
+mvn install:install-file -Dfile=E:/zkclient-0.10.jar -DgroupId=com.101tec -DartifactId=zkclient -Dversion=0.10 -Dpackaging=jar
+ -->
+		<dependency>
+			<groupId>com.101tec</groupId>
+			<artifactId>zkclient</artifactId>
+			<version>0.10</version>
+		</dependency>
+
 
 		<dependency>
 			<groupId>junit</groupId>

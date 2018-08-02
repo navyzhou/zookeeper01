@@ -1,6 +1,7 @@
 package com.yc.zookeeper.api;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.KeeperException;
@@ -39,7 +40,7 @@ public class ZooKeeperAPI {
 		
 		zk.create("/yc", "myData".getBytes(), Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
 
-		/*System.out.println("\n2. 查看是否创建成功： ");
+		System.out.println("\n2. 查看是否创建成功： ");
 		System.out.println(new String(zk.getData("/yc", this.wh, null)));// 添加Watch
 
 		// 前面一行我们添加了对/zoo2节点的监视，所以这里对/zoo2进行修改的时候，会触发Watch事件。
@@ -53,8 +54,13 @@ public class ZooKeeperAPI {
 		System.out.println("\n4. 查看是否修改成功： ");
 		System.out.println(new String(zk.getData("/yc", false, null)));
 
+		// 获取子节点信息
+		List<String> list = zk.getChildren("/yc", false);
+		System.out.println(list);
+		
 		System.out.println("\n5. 删除节点 ");
-		zk.delete("/yc", -1);*/
+		zk.delete("/yc", -1);
+		
 		
 		System.out.println("\n6. 查看节点是否被删除： ");
 		System.out.println(" 节点状态： [" + zk.exists("/yc", false) + "]");
